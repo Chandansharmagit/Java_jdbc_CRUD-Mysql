@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 public class databaseconnectionCRUD {
 
@@ -14,7 +15,11 @@ public class databaseconnectionCRUD {
       Class.forName("com.mysql.cj.jdbc.Driver");
       Connection connection = DriverManager.getConnection(url, username, password);
 
-      // Update statement
+      Scanner sc = new Scanner(System.in);
+      String name = sc.nextLine();
+      String email = sc.nextLine();
+
+      // Update statement usng the batch process
       String update = "UPDATE newcollection SET id = 8 WHERE id = 11";
       PreparedStatement updateStatement = connection.prepareStatement(update);
 
